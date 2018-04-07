@@ -6,7 +6,7 @@ var selectedFile;
 $( document ).ready(function() {
 	$("#welcome").hide();
 	$(".upload-group").hide();
-	document.getElementById("upload").addEventListener('change', handleFileSelect(), false);
+	document.getElementById("upload").addEventListener('change', handleFileSelect, false);
 });
 
 function signIn() {
@@ -50,7 +50,6 @@ $(".dropdown").on("hide.bs.dropdown", function(event){
 function handleFileSelect(event) {
 	$(".upload-group").show();
 	selectedFile = event.target.files[0];
-	console.log(selectedFile.name);
 };
 
 function confirmUpload() {
@@ -63,7 +62,7 @@ function confirmUpload() {
 			'caption': $("#imgDesc").val()
 		},
 	};
-	var uploadTask = firebase.storage().ref().child('/dogImages/' + selectedFile.name).put(selectedFile);
+	var uploadTask = firebase.storage().ref().child('dogImages/' + selectedFile.name).put(selectedFile, metadata);
 	// Register three observers:
 	// 1. 'state_changed' observer, called any time the state changes
 	// 2. Error observer, called on failure
