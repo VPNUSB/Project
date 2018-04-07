@@ -37,6 +37,7 @@ function showWelcomeContainer() {
 };
 
 $(".dropdown").on("hide.bs.dropdown", function(event){
+	var storageRef = firebase.storage().ref();
     var text = $(event.relatedTarget).text(); // Get the text of the element
     $("#dogDrop").html(text+'<span class="caret"></span>');
     firebase.database().ref('Users/' + user.uid).set({
