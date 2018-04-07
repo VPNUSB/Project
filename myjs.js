@@ -6,7 +6,9 @@ var selectedFile;
 $( document ).ready(function() {
 	$("#welcome").hide();
 	$(".upload-group").hide();
-	document.getElementById("upload").addEventListener('change', handleFileSelect(), false);
+	
+	
+
 });
 
 function signIn() {
@@ -47,11 +49,10 @@ $(".dropdown").on("hide.bs.dropdown", function(event){
 
 });
 
-function handleFileSelect(event) {
-	$(".upload-group").show();
-	selectedFile = event.target.files[0];
-
-};
+$("#upload").on("change", function(event){
+		selectedFile = event.target.files[0];
+		$(".upload-group").show();
+	});
 
 function confirmUpload() {
 	var fileName = selectedFile.name;
