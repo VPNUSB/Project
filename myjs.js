@@ -49,12 +49,11 @@ $(".dropdown").on("hide.bs.dropdown", function(event){
 
 });
 
-$("#upload").on("change", function(event){
-		selectedFile = event.target.files[0];
-		$(".upload-group").show();
-	});
+
 
 function confirmUpload() {
+	$(".upload-group").show();
+	selectedFile = event.target.files[0];
 	var fileName = selectedFile.name;
 	var storageRef = firebase.storage().ref('/dogImages/' + fileName);
 	var uploadTask = storageRef.put(selectedFile);
