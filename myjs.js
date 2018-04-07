@@ -47,13 +47,12 @@ $(".dropdown").on("hide.bs.dropdown", function(event){
 
 });
 
-function handleFileSelect(event) { //selected file
+function handleFileSelect(event) {
 	$(".upload-group").show();
 	selectedFile = event.target.files[0];
 };
 
 function confirmUpload() {
-	var storageRef = firebase.storage().ref('/dodImages/');
 	var metadata = {
 		contentType: 'image',
 		customMetadata: {
