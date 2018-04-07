@@ -54,6 +54,7 @@ function handleFileSelect(event) {
 };
 
 function confirmUpload() {
+	var filename = selectedFile.name;
 	var storageRef = firebase.storage().ref();
 	var metadata = {
 		contentType: 'image',
@@ -65,7 +66,7 @@ function confirmUpload() {
 		},
 	};
 	
-	var uploadTask = storageRef.child('dogImages/' + selectedFile.name).put(selectedFile, metadata);
+	var uploadTask = storageRef.child('/dogImages/' + filename).put(selectedFile);
 	// Register three observers:
 	// 1. 'state_changed' observer, called any time the state changes
 	// 2. Error observer, called on failure
