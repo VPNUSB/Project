@@ -50,6 +50,7 @@ $(".dropdown").on("hide.bs.dropdown", function(event){
 function handleFileSelect(event) {
 	$(".upload-group").show();
 	selectedFile = event.target.files[0];
+
 };
 
 function confirmUpload() {
@@ -62,6 +63,7 @@ function confirmUpload() {
 			'caption': $("#imgDesc").val()
 		},
 	};
+	console.log(selectedFile.name);
 	var uploadTask = firebase.storage().ref().child('dogImages/' + selectedFile.name).put(selectedFile, metadata);
 	// Register three observers:
 	// 1. 'state_changed' observer, called any time the state changes
