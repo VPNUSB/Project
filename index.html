@@ -7,6 +7,9 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
 	<script>
+		$(document).ready(function(){
+	  	$(".mainPage").hide();
+	  });
 	  // Initialize Firebase
 	  var config = {
 	    apiKey: "AIzaSyBQKH6iWki3d2cfrZh8XTtVwFqYZmaosHI",
@@ -20,14 +23,13 @@
 
 	  var provider = new firebase.auth.GoogleAuthProvider();
 	 
-	 $(document).ready(function(){
-	  	$(".mainPage").hide();
-	  });
+	 
 
 	function signIn(){
 		firebase.auth().signInWithRedirect(provider);
 		loadMainPage();
-	}
+	};
+
 	function loadMainPage(){
 		$(".login").hide();
 		$(".mainPage").show();
