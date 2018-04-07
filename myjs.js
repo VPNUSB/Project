@@ -50,6 +50,7 @@ $(".dropdown").on("hide.bs.dropdown", function(event){
 function handleFileSelect(event) {
 	$(".upload-group").show();
 	selectedFile = event.target.files[0];
+	console.log(selectedFile.name);
 };
 
 function confirmUpload() {
