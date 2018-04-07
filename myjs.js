@@ -89,6 +89,7 @@ function confirmUpload() {
 	  // Handle successful uploads on complete
 	  // For instance, get the download URL: https://firebasestorage.googleapis.com/...
 	  var downloadURL = uploadTask.snapshot.downloadURL;
+	  console.log(downloadURL);
 	  $(".upload-group")[0].before("Success!");
 	  $(".upload-group").hide();
 	});
