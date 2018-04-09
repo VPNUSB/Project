@@ -49,10 +49,10 @@ $(".dropdown").on("hide.bs.dropdown", function(event){
 
 });
 
-
+$(".upload-group").show();
 
 function confirmUpload() {
-	$(".upload-group").show();
+	
 	selectedFile = event.target.files[0];
 	var fileName = selectedFile.name;
 	var storageRef = firebase.storage().ref('/dogImages/' + fileName);
