@@ -5,7 +5,7 @@ var selectedFile;
 
 $( document ).ready(function() {
 	$("#welcome").hide();
-	$(".upload-group").hide();
+	
 	
 	
 
@@ -49,7 +49,7 @@ $(".dropdown").on("hide.bs.dropdown", function(event){
 
 });
 
-$(".upload-group").show();
+
 
 function confirmUpload() {
 	
