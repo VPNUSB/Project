@@ -6,7 +6,7 @@ var selectedFile;
 $( document ).ready(function() {
 	$("#welcome").hide();
 	
-	
+	document.getElementById("upload").addEventListener('change', handleFileSelect(), false);
 	
 
 });
@@ -49,11 +49,15 @@ $(".dropdown").on("hide.bs.dropdown", function(event){
 
 });
 
+function handleFileSelect(event) {
+	
+	selectedFile = event.target.files[0];
+};
 
 
 function confirmUpload() {
 	
-	selectedFile = event.target.files[0];
+	
 	var fileName = selectedFile.name;
 	var storageRef = firebase.storage().ref('/dogImages/' + fileName);
 	var uploadTask = storageRef.put(selectedFile);
