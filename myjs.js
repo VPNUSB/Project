@@ -57,9 +57,9 @@ function confirmUpload() {
 	var fileName = selectedFile.files[0].name;
 	var image = selectedFile.files[0];
 	var storageRef = firebase.storage().ref('dogImages/' + fileName);
-	var uploadTask = storageRef.put(image);
+	
 
-	/*var metadata = {
+	var metadata = {
 		contentType: 'image',
 		customMetadata: {
 			'dogType': 'Lab',
@@ -67,8 +67,9 @@ function confirmUpload() {
 			'title': $("#imgTitle").val(),
 			'caption': $("#imgDesc").val()
 		},
-	};*/
+	};
 	
+	var uploadTask = storageRef.put(image, metadata);
 	
 	uploadTask.on('state_changed', function(snapshot){
   		
