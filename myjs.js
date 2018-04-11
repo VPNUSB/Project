@@ -99,7 +99,7 @@ uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
     }
   }, function(error) {
   }
-}, function() {
+, function() {
   // Upload completed successfully, now we can get the download URL
   var downloadURL = uploadTask.snapshot.downloadURL;
   console.log(downloadURL);
