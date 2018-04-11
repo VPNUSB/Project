@@ -89,6 +89,14 @@ uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
 , function() {
   // Upload completed successfully, now we can get the download URL
   var downloadURL = uploadTask.snapshot.downloadURL;
+  var postKey = firebase.database.ref('Posts/').push.key;
+  var updates = {};
+  var postData = {
+  	url: downloadURL,
+  	user: user.uid
+  };
+  updates['/Posts/' + postKey] = postData;
+  firebase.database.ref().update(updates);
   console.log(downloadURL);
   $(".upload-group")[0].before("Success!");
   $(".upload-group").hide();
