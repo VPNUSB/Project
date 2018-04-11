@@ -65,7 +65,7 @@ function confirmUpload() {
 			'caption': $("#imgDesc").val()
 		},
 	};
-	
+	var storageRef = firebase.storage().ref();
 	var uploadTask = storageRef.put(image, metadata);
 	
 	uploadTask.on('state_changed', function(snapshot){
