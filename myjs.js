@@ -66,7 +66,7 @@ function confirmUpload() {
 		},
 	};
 	var storageRef = firebase.storage().ref();
-
+         console.log(metadata);
 	// Upload file and metadata to the object 'images/mountains.jpg'
 var uploadTask = storageRef.child('images/' + fileName).put(image, metadata);
 
