@@ -66,20 +66,7 @@ function confirmUpload() {
 		},
 	};
 	var storageRef = firebase.storage().ref();
-	var uploadTask = storageRef.put(image, metadata);
-	
-	uploadTask.on('state_changed', function(snapshot){
-  		
-	}, function(error) {
-  		
-	}, function() {
-  		var downloadURL = uploadTask.snapshot.downloadURL;
-  		console.log(downloadURL);
-  		$(".upload-group")[0].before("Success!");
-  		$(".upload-group").hide();
 
-	});
-	
 	// Upload file and metadata to the object 'images/mountains.jpg'
 var uploadTask = storageRef.child('images/' + fileName).put(image, metadata);
 
