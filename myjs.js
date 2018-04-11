@@ -56,7 +56,7 @@ $(".dropdown").on("hide.bs.dropdown", function(event){
 function confirmUpload() {
 	var fileName = selectedFile.files[0].name;
 	var image = selectedFile.files[0];
-	var storageRef = firebase.storage().ref('/dogImages/' + fileName);
+	var storageRef = firebase.storage().ref('dogImages/' + fileName);
 	var uploadTask = storageRef.put(image);
 
 	/*var metadata = {
