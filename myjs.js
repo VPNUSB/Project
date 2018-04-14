@@ -130,8 +130,8 @@ return firebase.database().ref('/Posts/').once('value').then(function(snapshot) 
   var currentRow;
   for(var i = 0; i < keys.length; i++)
   {
-	  console.log("uid loop " + postObject[keys[i]].uid);
-	if(postObject[keys[i]].uid == token)
+	  console.log("uid loop " + postObject[keys[i]].user);
+	if(postObject[keys[i]].user == token)
 	{
 		var currentObj = postObject[keys[i]];
 		//new row on every 3 entry
