@@ -58,12 +58,6 @@ function confirmUpload() {
 	var image = selectedFile.files[0];
 	var metadata = {
 		contentType: 'image',
-		customMetadata: {
-			'dogType': 'Lab',
-			'uploadedBy': user.uid,
-			'title': $("#imgTitle").val(),
-			'caption': $("#imgDesc").val()
-		},
 	};
 	var storageRef = firebase.storage().ref();
          console.log(metadata);
@@ -93,7 +87,11 @@ uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
   var updates = {};
   var postData = {
   	url: downloadURL,
-  	user: user.uid
+  	user: user.uid,
+  	customMetadata: {
+			'title': $("#imgTitle").val(),
+			'caption': $("#imgDesc").val()
+		}
   };
   updates['/Posts/' + user.uid + '/'+ postKey] = postData;
   firebase.database().ref().update(updates);
