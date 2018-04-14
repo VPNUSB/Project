@@ -112,8 +112,7 @@ var user = firebase.auth().currentUser;
 var token = firebase.auth().currentUser.uid;
 if (user) {
   // User is signed in.
-  console.log("usr token " + token);
-  queryDatabse(token);
+   queryDatabse(token);
 } else {
   // No user is signed in.
 }
@@ -131,6 +130,7 @@ return firebase.database().ref('/Posts/').once('value').then(function(snapshot) 
   var currentRow;
   for(var i = 0; i < keys.length; i++)
   {
+	  console.log("uid loop " + postObject[keys[i]].uid);
 	if(postObject[keys[i]].uid == token)
 	{
 		var currentObj = postObject[keys[i]];
