@@ -124,7 +124,7 @@ function queryDatabse(token){
 
 
 
-return firebase.database().ref('/Posts/' + token).once('value').then(function(snapshot) {
+return firebase.database().ref('/Posts/').once('value').then(function(snapshot) {
   var postObject = snapshot.val();
   console.log("postobject val " + postObject);
   var keys = Object.keys(postObject);
