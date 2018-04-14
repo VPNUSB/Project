@@ -124,7 +124,7 @@ function queryDatabse(token){
 
 
 return firebase.database().ref('/Posts/' + token).once('value').then(function(snapshot) {
-  var postObject = (snapshot.val() && snapshot.val().username) || 'Anonymous';
+  var postObject = snapshot.val();
   var keys = Object.keys(postObject);
   var currentRow;
   for(var i = 0; i < keys.length; i++)
