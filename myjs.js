@@ -95,7 +95,7 @@ uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
   	url: downloadURL,
   	user: user.uid
   };
-  updates['/Posts/' + postKey] = postData;
+  updates['/Posts/' + user.uid] = postData;
   firebase.database().ref().update(updates);
   console.log(downloadURL);
   $(".upload-group")[0].before("Success!");
