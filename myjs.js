@@ -112,6 +112,7 @@ var user = firebase.auth().currentUser;
 var token = firebase.auth().currentUser.uid;
 if (user) {
   // User is signed in.
+  console.log("usr token " + token);
   queryDatabse(token);
 } else {
   // No user is signed in.
@@ -125,6 +126,7 @@ function queryDatabse(token){
 
 return firebase.database().ref('/Posts/' + token).once('value').then(function(snapshot) {
   var postObject = snapshot.val();
+  console.log("postobject val " + postObject);
   var keys = Object.keys(postObject);
   var currentRow;
   for(var i = 0; i < keys.length; i++)
