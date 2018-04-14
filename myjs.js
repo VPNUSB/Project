@@ -95,7 +95,7 @@ uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
   	url: downloadURL,
   	user: user.uid
   };
-  updates['/Posts/' + user.uid] = postData;
+  updates['/Posts/' + postKey] = postData;
   firebase.database().ref().update(updates);
   console.log(downloadURL);
   $(".upload-group")[0].before("Success!");
@@ -131,21 +131,24 @@ return firebase.database().ref('/Posts/').once('value').then(function(snapshot) 
   var currentRow;
   for(var i = 0; i < keys.length; i++)
   {
-  	var currentObj = postObject[keys[i]];
-  	//new row on every 3 entry
-  	// col-lg-4
-  	if ( i % 3 == 0){
-  		currentRow = document.createElement("div");
-  		$(currentRow).addClass("row");
-  		$("#loadContent").append(currentRow);
-  	}
-  	var col = document.createElement("div");
-  	$(col).addClass("col-lg-4");
-  	var image = document.createElement("img");
-  	image.src = currentObj.url;
-  	$(image).addClass("contentImage");
-  	$(col).append(image);
-  	$(currentRow).append(col);
+	if(postObject[keys[i]].uid == token)
+	{
+		var currentObj = postObject[keys[i]];
+		//new row on every 3 entry
+		// col-lg-4
+		if ( i % 3 == 0){
+			currentRow = document.createElement("div");
+			$(currentRow).addClass("row");
+			$("#loadContent").append(currentRow);
+		}
+		var col = document.createElement("div");
+		$(col).addClass("col-lg-4");
+		var image = document.createElement("img");
+		image.src = currentObj.url;
+		$(image).addClass("contentImage");
+		$(col).append(image);
+		$(currentRow).append(col);
+	}
   }
   
 });
